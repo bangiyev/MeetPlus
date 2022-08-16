@@ -1,0 +1,11 @@
+.heading {
+    position: absolute;
+    top: 5px;
+    left: 70px;
+}
+
+.logout {
+    position: absolute;
+    top: 30px;
+    left: 1000px;
+}
