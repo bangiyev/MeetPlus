@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { GoogleButton } from "react-google-button";
 import { UserAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ const SignIn = () => {
     <div>
       <h1>Sign in</h1>
       <div>
-        <GoogleButton onClick={handleGoogleSignIn} />
+        <GoogleButton type="light" onClick={handleGoogleSignIn} />
       </div>
     </div>
   );
