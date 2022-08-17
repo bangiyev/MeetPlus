@@ -1,8 +1,11 @@
-import React, { Fragment, useState, useCallback, useMemo } from "react";
-//import PropTypes from "prop-types";
+import React, {
+  Fragment,
+  useState,
+  useCallback,
+  useMemo,
+  useEffect,
+} from "react";
 import { Calendar, Views, dateFnsLocalizer } from "react-big-calendar";
-//import DemoLink from '../../DemoLink.component'
-//import events from '../../resources/events'
 import format from "date-fns/format";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
@@ -44,10 +47,49 @@ export default function Schedule() {
   const [myEvents, setEvents] = useState(events);
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
 
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("/api/events");
+        const json = await response.json();
+        if (response.ok) {
+          console.log("ok");
+          console.log(json);
+          json.forEach((eventObject) => {
+            eventObject.start = new Date(eventObject.start);
+            eventObject.end = new Date(eventObject.end);
+          });
+          console.log(json);
+          setEvents(json);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchEvents();
+  }, []);
+
   const handleSelectSlot = useCallback(
-    ({ start, end }) => {
+    async ({ start, end }) => {
       const title = window.prompt("New Event name");
       if (title) {
+        const event = { title, start, end };
+        console.log(event);
+        const response = await fetch("/api/events", {
+          method: "POST",
+          body: JSON.stringify(event),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const json = await response.json();
+        if (!response.ok) {
+          console.log(json.error);
+        }
+        if (response.ok) {
+          console.log("new event added");
+        }
+
         setNewEvent(() => ({ title: title, start: start, end: end }));
         setEvents(() => [...myEvents, { start, end, title }]);
       }
@@ -62,7 +104,7 @@ export default function Schedule() {
 
   const { defaultDate, scrollToTime } = useMemo(
     () => ({
-      defaultDate: new Date(2022, 3, 12),
+      defaultDate: new Date(),
       scrollToTime: new Date(1970, 1, 1, 6),
     }),
     []
