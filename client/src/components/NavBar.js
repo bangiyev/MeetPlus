@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import "./NavStyles.css";
 
@@ -33,18 +33,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-/*
-<div>
-      <h1 className="heading">Heading </h1>
-      {user?.displayName ? (
-        <button className="logout" onClick={handleSignOut}>
-          Logout
-        </button>
-      ) : (
-        <Link className="logout" to="/signin">
-          Sign in
-        </Link>
-      )}
-    </div>
-*/

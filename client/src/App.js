@@ -3,7 +3,6 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import Account from "./pages/Account";
-import NavBar from "./components/NavBar";
 import Protected from "./components/Protected";
 import Schedule from "./pages/Schedule";
 

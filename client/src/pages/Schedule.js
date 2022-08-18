@@ -1,17 +1,11 @@
-import React, {
-  Fragment,
-  useState,
-  useCallback,
-  useMemo,
-  useEffect,
-} from "react";
+import { Fragment, useState, useCallback, useMemo, useEffect } from "react";
 import { Calendar, Views, dateFnsLocalizer } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import NavBar from "../components/NavBar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -23,26 +17,6 @@ const localizer = dateFnsLocalizer({
   getDay,
   locales,
 });
-const events = [
-  {
-    title: "Solomon Unavailable",
-    allDay: true,
-    start: new Date(2022, 8, 0),
-    end: new Date(2022, 8, 0),
-  },
-  {
-    title: "Joey Unavailable",
-    allDay: true,
-    start: new Date(2022, 8, 0),
-    end: new Date(2022, 8, 0),
-  },
-  {
-    title: "Alma Unavailable",
-    allDay: true,
-    start: new Date(2022, 8, 0),
-    end: new Date(2022, 8, 0),
-  },
-];
 
 export default function Schedule() {
   const [myEvents, setEvents] = useState();
