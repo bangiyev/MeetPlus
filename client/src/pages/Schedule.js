@@ -27,8 +27,8 @@ const localizer = dateFnsLocalizer({
 });
 
 const templateParams = {
-  subject: "test subject",
-  to_email: "bangiyevs@gmail.com",
+  subject: "REMINDER- Calendar Event",
+  to_email: "",
   message: "New meeting has been scheduled. Check your calendar",
 };
 const publicKey = "mW6oS7yH46JF5vmch";
@@ -89,8 +89,28 @@ export default function Schedule() {
     [setEvents, setNewEvent, myEvents]
   );
 
-  const sendEmail = () => {
+  // const sendEmail = () => {
+  //   console.log("send email");
+  //   try {
+  //     emailjs.send(serviceID, templateID, templateParams, publicKey);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+  const sendEmail = async (event) => {
     console.log("send email");
+    const response = await fetch("/api/users");
+    const json = await response.json();
+    console.log(json);
+    const emails = [];
+    json.forEach((userObject) => {
+      emails.push(userObject.email);
+    });
+    templateParams.to_email = emails.join(", ");
+    templateParams.message = `Your group sent you a new reminder:\n\nEVENT NAME: ${
+      event.title
+    } \nSTART TIME: ${event.start.toString()} \nEND TIME: ${event.end.toString()} `;
+    console.log(templateParams.message);
     try {
       emailjs.send(serviceID, templateID, templateParams, publicKey);
     } catch (err) {
@@ -98,14 +118,10 @@ export default function Schedule() {
     }
   };
 
-  // const handleSelectEvent = useCallback(
-  //   (event) => window.alert(event.title),
-  //   []
-  // );
   const handleSelectEvent = useCallback((event) => {
     if (window.confirm("Send reminder email?")) {
-      //console.log("send email");
-      sendEmail();
+      sendEmail(event);
+      console.log("EVENT: ", event);
     }
   });
 

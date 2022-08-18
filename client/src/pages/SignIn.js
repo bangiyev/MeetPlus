@@ -15,9 +15,32 @@ const Home = () => {
     }
   };
 
+  // useEffect(() => {
+  //   if (user?.displayName) {
+  //     navigate("/home");
+  //   }
+  // }, [user]);
+
   useEffect(() => {
+    const checkUserDB = async (user) => {
+      const displayName = user.displayName;
+      const email = user.email;
+      const userData = { displayName, email };
+      const response = await fetch("/api/users/", {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const json = await response.json();
+      if (!response.ok) {
+        console.log(json.error);
+      }
+      console.log(`JSON RESPONSE:`, json);
+    };
     if (user?.displayName) {
-      console.log("not null");
+      checkUserDB(user);
       navigate("/home");
     }
   }, [user]);

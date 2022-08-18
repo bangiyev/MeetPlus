@@ -32,12 +32,6 @@ export const AuthContextProvider = ({ children }) => {
     };
   }, []);
 
-  // useEffect(()=>{
-  //   if (user?.email) {
-  //     // send email and name to server.
-  //   }
-  // }, [])
-
   return (
     <AuthContext.Provider value={{ googleSignIn, logOut, user }}>
       {children}
