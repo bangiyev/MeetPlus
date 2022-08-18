@@ -7,4 +7,6 @@ router.get("/", getEvents);
 
 router.post("/", createEvent);
 
+// router.post('/', addUserEmail);
+
 module.exports = router;

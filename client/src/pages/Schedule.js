@@ -1,4 +1,11 @@
-import { Fragment, useState, useCallback, useMemo, useEffect } from "react";
+import {
+  Fragment,
+  useState,
+  useCallback,
+  useMemo,
+  useEffect,
+  useRef,
+} from "react";
 import { Calendar, Views, dateFnsLocalizer } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
@@ -6,6 +13,7 @@ import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import NavBar from "../components/NavBar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import emailjs from "@emailjs/browser";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -17,6 +25,15 @@ const localizer = dateFnsLocalizer({
   getDay,
   locales,
 });
+
+const templateParams = {
+  subject: "test subject",
+  to_email: "bangiyevs@gmail.com",
+  message: "New meeting has been scheduled. Check your calendar",
+};
+const publicKey = "mW6oS7yH46JF5vmch";
+const serviceID = "service_bj1j7ol";
+const templateID = "template_jkrmcxn";
 
 export default function Schedule() {
   const [myEvents, setEvents] = useState();
@@ -46,7 +63,7 @@ export default function Schedule() {
   // add new event to server
   const handleSelectSlot = useCallback(
     async ({ start, end }) => {
-      const title = window.prompt("New Event name");
+      const title = window.prompt("New Event Name");
       if (title) {
         const event = { title, start, end };
         console.log(event);
@@ -72,10 +89,25 @@ export default function Schedule() {
     [setEvents, setNewEvent, myEvents]
   );
 
-  const handleSelectEvent = useCallback(
-    (event) => window.alert(event.title),
-    []
-  );
+  const sendEmail = () => {
+    console.log("send email");
+    try {
+      emailjs.send(serviceID, templateID, templateParams, publicKey);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // const handleSelectEvent = useCallback(
+  //   (event) => window.alert(event.title),
+  //   []
+  // );
+  const handleSelectEvent = useCallback((event) => {
+    if (window.confirm("Send reminder email?")) {
+      //console.log("send email");
+      sendEmail();
+    }
+  });
 
   const { defaultDate, scrollToTime } = useMemo(
     () => ({

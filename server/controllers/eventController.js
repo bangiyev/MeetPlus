@@ -18,4 +18,11 @@ const createEvent = async (req, res) => {
   }
 };
 
+// const addUserEmail = async (req, res) => {
+//   const {displayName, email} = req.body;
+//   try {
+
+//   }
+// }
+
 module.exports = { getEvents, createEvent };
