@@ -11,20 +11,32 @@ function App() {
   return (
     <div>
       <AuthContextProvider>
-        {/* <NavBar /> */}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/" element={<SignIn />} />
+          <Route
+            path="/home"
+            element={
+              <Protected>
+                <Home />
+              </Protected>
+            }
+          />
           <Route
             path="/account"
             element={
               <Protected>
-                {" "}
-                <Account />{" "}
+                <Account />
               </Protected>
             }
           />
-          <Route path="/schedule" element={<Schedule />} />
+          <Route
+            path="/schedule"
+            element={
+              <Protected>
+                <Schedule />
+              </Protected>
+            }
+          />
         </Routes>
       </AuthContextProvider>
     </div>

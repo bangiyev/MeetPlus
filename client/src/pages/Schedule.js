@@ -11,6 +11,7 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import NavBar from "../components/NavBar";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -44,9 +45,10 @@ const events = [
 ];
 
 export default function Schedule() {
-  const [myEvents, setEvents] = useState(events);
+  const [myEvents, setEvents] = useState();
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
 
+  // Populate calendar with events from server
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -54,12 +56,10 @@ export default function Schedule() {
         const json = await response.json();
         if (response.ok) {
           console.log("ok");
-          console.log(json);
           json.forEach((eventObject) => {
             eventObject.start = new Date(eventObject.start);
             eventObject.end = new Date(eventObject.end);
           });
-          console.log(json);
           setEvents(json);
         }
       } catch (err) {
@@ -69,6 +69,7 @@ export default function Schedule() {
     fetchEvents();
   }, []);
 
+  // add new event to server
   const handleSelectSlot = useCallback(
     async ({ start, end }) => {
       const title = window.prompt("New Event name");
@@ -112,6 +113,7 @@ export default function Schedule() {
 
   return (
     <Fragment>
+      <NavBar />
       <strong>
         Click an event to see more info, or drag the mouse over the calendar to
         select a date/time range.
@@ -127,7 +129,7 @@ export default function Schedule() {
           onSelectSlot={handleSelectSlot}
           selectable
           scrollToTime={scrollToTime}
-          style={{ height: 500, margin: "50px" }}
+          style={{ height: 1000, margin: "50px" }}
         />
       </div>
     </Fragment>

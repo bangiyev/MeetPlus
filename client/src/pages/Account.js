@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "../components/NavBar";
 import { UserAuth } from "../context/AuthContext";
 
 const Account = () => {
@@ -14,6 +15,7 @@ const Account = () => {
 
   return (
     <div>
+      <NavBar />
       <div>
         <p>Welcome, {user?.displayName}</p>
       </div>
