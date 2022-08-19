@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { GoogleButton } from "react-google-button";
 import { UserAuth } from "../context/AuthContext";
+import "./SignInStyles.css";
 
 const Home = () => {
   const { googleSignIn, user } = UserAuth();
@@ -47,10 +48,21 @@ const Home = () => {
 
   return (
     <div>
-      <h1> Welcome</h1>
-      <div>
-        <GoogleButton type="light" onClick={handleGoogleSignIn} />
+      <div className="login-container">
+        <label>Email</label>
+        <input autoFocus type="text" required placeholder="email@example.com" />
+        <label>Password</label>
+        <input type="password" required placeholder="Password" />
+        <button>Sign In</button>
+
+        <GoogleButton
+          className="google-button"
+          type="light"
+          onClick={handleGoogleSignIn}
+          style={{ width: "540px" }}
+        />
       </div>
+      <div className="second-half-of-login-screen"></div>
     </div>
   );
 };

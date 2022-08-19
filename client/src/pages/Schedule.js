@@ -141,7 +141,7 @@ export default function Schedule() {
         select a date/time range.
       </strong>
 
-      <div className="height600">
+      <div className="blank">
         <Calendar
           defaultDate={defaultDate}
           defaultView={Views.WEEK}
