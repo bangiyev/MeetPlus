@@ -1,0 +1,32 @@
+.account-container {
+}
+
+.group-members-container {
+    display: grid;
+    margin-top: 4rem;
+    justify-content: center;
+    grid-template-columns: repeat(4, 18%);
+        
+}
+
+.group-member{
+    height: 180px;
+    width: 60%;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    word-wrap: break-word;
+    word-break: break-all;  
+    overflow: hidden;
+}
+
+.group-members-heading {
+    text-align: center;
+}
+
+.group-member-name {
+    font-size: 20px;
+    font-style: inherit;
+}

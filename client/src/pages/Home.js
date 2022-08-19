@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import "./HomeStyles.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -7,9 +8,21 @@ const Home = () => {
   return (
     <div>
       <NavBar />
-      <h1>Welcome</h1>
-      <button onClick={() => navigate("/schedule")}>Schedule</button>
-      <button onClick={() => navigate("/account")}>Account</button>
+      <h1 className="home-heading">MeetPlus</h1>
+      <div className="home-buttons-container">
+        <button
+          className="home-screen-buttons"
+          onClick={() => navigate("/schedule")}
+        >
+          Schedule
+        </button>
+        <button
+          className="home-screen-buttons"
+          onClick={() => navigate("/account")}
+        >
+          Group Chat
+        </button>
+      </div>
     </div>
   );
 };

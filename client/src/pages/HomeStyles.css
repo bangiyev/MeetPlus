@@ -1,0 +1,40 @@
+.home-buttons-container {
+    /* height: 180px;
+    width: 60%;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    border-radius: 10px; */
+    height: 200px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    
+    align-items: center;
+    display: flex;
+    margin-top: 15rem;
+    justify-content: center;
+
+
+}
+
+.home-heading{
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.home-screen-buttons{
+    /* position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    margin:50px;
+    width: 30rem;
+    font-size: 200%;
+    
+}

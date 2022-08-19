@@ -1,27 +1,56 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import { UserAuth } from "../context/AuthContext";
+import "./AccountStyles.css";
 
 const Account = () => {
   const { logOut, user } = UserAuth();
+  const [users, setUsers] = useState([]);
 
-  const handleSignOut = async () => {
+  useEffect(() => {
+    let fetched = true;
+    const getUserNames = async () => {
+      const usersFromServer = await fetchUserNames();
+      if (fetched) {
+        setUsers(usersFromServer);
+      }
+    };
+    getUserNames();
+    return () => (fetched = false);
+  }, []);
+
+  const fetchUserNames = async () => {
     try {
-      await logOut();
+      const response = await fetch("/api/users");
+      const json = await response.json();
+      if (response.ok) {
+        console.log("ok");
+        return json;
+      }
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 
   return (
-    <div>
+    <div className="account-container">
       <NavBar />
-      <div>
-        <p>Welcome, {user?.displayName}</p>
+      <h2 className="group-members-heading">Your group members</h2>
+      <div className="group-members-container">
+        {users &&
+          users.map((user) => (
+            <div key={user._id} className="group-member">
+              <>
+                <h4 className="group-member-name">{user.displayName} </h4>
+                <>{user.email}</>
+              </>
+            </div>
+          ))}
       </div>
-      <button onClick={handleSignOut}>Logout</button>
     </div>
   );
 };
 
 export default Account;
+
+// <strong>Welcome, {user?.displayName}</strong>
