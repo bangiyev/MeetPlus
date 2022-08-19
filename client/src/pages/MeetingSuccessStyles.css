@@ -1,0 +1,138 @@
+@font-face {
+    font-family: DM Sans;
+    src: url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+}
+
+.frame {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 32px;
+
+position: absolute;
+width: 661px;
+height: 426.27px;
+left: 30%;
+top: 30%;
+right: 30%
+}
+
+.image {
+    /* Group 87 */
+width: 218.68px;
+height: 156.27px;
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.top-text {
+    
+    width: 661px;
+    height: 104px;
+        /* H1 */
+    /* font-family: 'DM Sans'; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 52px;
+    text-align: center;
+    
+    /* Colors / Black / 100% */
+    color: #000000;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.bottom-text {
+    width: 327px;
+height: 20px;
+
+/* H4 */
+/* font-family: 'DM Sans'; */
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+
+/* identical to box height, or 143% */
+text-align: center;
+
+/* Colors / Black / 100% */
+color: #000000;
+
+mix-blend-mode: normal;
+opacity: 0.4;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+}
+
+
+.button {
+    /* Elements / Button */
+width: 130px;
+height: 50px;
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+background: #4339F2;
+border: none;
+border-radius: 10px;
+
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #FFFFFF;
+cursor: pointer;
+
+}
+
+.button-text {
+    /* Text */
+
+position: absolute;
+height: 20px;
+left: 26.54%;
+right: 27.31%;
+top: calc(50% - 20px/2 + 1px);
+
+/* H4 */
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+
+/* identical to box height, or 143% */
+text-align: center;
+
+/* Colors / White / 100% */
+color: #FFFFFF;
+}
+
+
+
+.textframe {
+    /* Text */
+
+position: absolute;
+width: 570px;
+height: 457px;
+left: 515px;
+top: 272px;
+
+
+}
+

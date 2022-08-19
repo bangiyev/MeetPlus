@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Menu from "../components/Menu";
 import NavBar from "../components/NavBar";
 import "./HomeStyles.css";
 
@@ -7,7 +8,8 @@ const Home = () => {
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
+      <Menu />
       <h1 className="home-heading">MeetPlus</h1>
       <div className="home-buttons-container">
         <button

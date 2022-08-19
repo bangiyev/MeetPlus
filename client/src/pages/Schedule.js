@@ -6,6 +6,7 @@ import {
   useEffect,
   useRef,
 } from "react";
+import { useNavigate } from "react-router-dom";
 import { Calendar, Views, dateFnsLocalizer } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
@@ -14,6 +15,7 @@ import getDay from "date-fns/getDay";
 import NavBar from "../components/NavBar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import emailjs from "@emailjs/browser";
+import Menu from "../components/Menu";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -38,6 +40,8 @@ const templateID = "template_jkrmcxn";
 export default function Schedule() {
   const [myEvents, setEvents] = useState();
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+
+  const navigate = useNavigate();
 
   // Populate calendar with events from server
   useEffect(() => {
@@ -113,6 +117,7 @@ export default function Schedule() {
     console.log(templateParams.message);
     try {
       emailjs.send(serviceID, templateID, templateParams, publicKey);
+      navigate("/meetingSuccess");
     } catch (err) {
       console.error(err);
     }
@@ -135,11 +140,12 @@ export default function Schedule() {
 
   return (
     <Fragment>
-      <NavBar />
-      <strong>
+      {/* <NavBar /> */}
+      <Menu />
+      {/* <strong>
         Click an event to see more info, or drag the mouse over the calendar to
         select a date/time range.
-      </strong>
+      </strong> */}
 
       <div className="blank">
         <Calendar
@@ -151,7 +157,12 @@ export default function Schedule() {
           onSelectSlot={handleSelectSlot}
           selectable
           scrollToTime={scrollToTime}
-          style={{ height: 1000, margin: "50px" }}
+          style={{
+            height: 850,
+            margin: "50px",
+            "margin-left": "120px",
+            "margin-top": "60px",
+          }}
         />
       </div>
     </Fragment>
