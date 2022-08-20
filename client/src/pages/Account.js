@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import Menu from "../components/Menu";
 import pfp from "../images/example-pfp.png";
+import userPic from "../images/user-pic.png";
 import bell from "../icons/bell.png";
 import "./AccountStyles.css";
 
@@ -50,7 +51,7 @@ const Account = () => {
         {users &&
           users.map((user) => (
             <div key={user._id} className="member-card">
-              <img className="pfp" alt="img" src={pfp}></img>
+              <img className="pfp" alt="img" src={userPic}></img>
               <p className="member-name">{user.displayName} </p>
               <p className="member-email">{user.email}</p>
             </div>
