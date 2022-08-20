@@ -33,7 +33,7 @@ const Menu = () => {
               ></img>
             </Link>
 
-            <Link to="/account">
+            <Link to="/tempaccount">
               <img
                 className="icon-8"
                 alt="account"
@@ -59,7 +59,7 @@ const Menu = () => {
               <img className="icon-2" alt="Schedule" src={schedule}></img>
             </Link>
 
-            <Link to="/account">
+            <Link to="/tempaccount">
               <img
                 className="icon-8"
                 alt="account"
@@ -90,7 +90,7 @@ const Menu = () => {
               ></img>
             </Link>
 
-            <Link to="/account">
+            <Link to="/tempaccount">
               <img className="icon-8" alt="account" src={account}></img>
             </Link>
           </>

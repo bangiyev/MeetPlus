@@ -3,6 +3,8 @@ import Menu from "../components/Menu";
 import NavBar from "../components/NavBar";
 import { UserAuth } from "../context/AuthContext";
 import "./TempaccountStyles.css";
+import pfp from "../images/example-pfp.png";
+import bell from "../icons/bell.png";
 
 const Tempaccount = () => {
   const [users, setUsers] = useState([]);
@@ -33,21 +35,25 @@ const Tempaccount = () => {
   };
 
   return (
-    <div>
+    <>
       <Menu />
-      <h2 className="group-members-heading">Your group members</h2>
-      <div className="group-members-container">
-        {users &&
-          users.map((user) => (
-            <div key={user._id} className="group-member">
-              <>
-                <h4 className="group-member-name">{user.displayName} </h4>
-                <>{user.email}</>
-              </>
-            </div>
-          ))}
+      <h2 className="team-members-heading">Team Members</h2>
+      <div className="container">
+        <div className="frame">
+          {users &&
+            users.map((user) => (
+              <div key={user._id} className="member-card">
+                <div className="member-card-info">
+                  <img className="pfp" alt="img" src={pfp}></img>
+                  <p className="member-name">{user.displayName} </p>
+                  <p className="member-email">{user.email}</p>
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
-    </div>
+      <img className="bell" alt="bell" src={bell}></img>
+    </>
   );
 };
 
