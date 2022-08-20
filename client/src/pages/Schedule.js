@@ -12,10 +12,10 @@ import format from "date-fns/format";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
-import NavBar from "../components/NavBar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import emailjs from "@emailjs/browser";
 import Menu from "../components/Menu";
+import "./ScheduleStyles.css";
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -142,10 +142,6 @@ export default function Schedule() {
     <Fragment>
       {/* <NavBar /> */}
       <Menu />
-      {/* <strong>
-        Click an event to see more info, or drag the mouse over the calendar to
-        select a date/time range.
-      </strong> */}
 
       <div className="blank">
         <Calendar
@@ -161,7 +157,7 @@ export default function Schedule() {
             height: 850,
             margin: "50px",
             "margin-left": "120px",
-            "margin-top": "60px",
+            "margin-top": "50px",
           }}
         />
       </div>
