@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
-import NavBar from "../components/NavBar";
 import "./HomeStyles.css";
 
 const Home = () => {

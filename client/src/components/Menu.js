@@ -1,11 +1,10 @@
 import React from "react";
-import { Link, useResolvedPath } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./MenuStyles.css";
 import Logo from "../icons/Logo.png";
 import account from "../icons/Icon-8.png";
 import line from "../icons/Line.png";
 import home from "../icons/Icon-1.png";
-import icon22 from "../icons/Icon-2.png";
 import schedule from "../icons/Icon-2-bold.png";
 
 const Menu = () => {
@@ -33,7 +32,7 @@ const Menu = () => {
               ></img>
             </Link>
 
-            <Link to="/tempaccount">
+            <Link to="/account">
               <img
                 className="icon-8"
                 alt="account"
@@ -59,7 +58,7 @@ const Menu = () => {
               <img className="icon-2" alt="Schedule" src={schedule}></img>
             </Link>
 
-            <Link to="/tempaccount">
+            <Link to="/account">
               <img
                 className="icon-8"
                 alt="account"
@@ -90,45 +89,11 @@ const Menu = () => {
               ></img>
             </Link>
 
-            <Link to="/tempaccount">
+            <Link to="/account">
               <img className="icon-8" alt="account" src={account}></img>
             </Link>
           </>
         )}
-
-        {/* <Link to="/account">
-          <img className="icon-1" alt="TBD" src={icon1}></img>
-        </Link>
-
-        {window.location.href.includes("meetingSuccess") ? (
-          <Link to="/schedule">
-            <img className="icon-2" alt="Schedule" src={icon2}></img>
-          </Link>
-        ) : (
-          <Link to="/schedule">
-            <img
-              className="icon-2"
-              alt="Schedule"
-              src={icon2}
-              style={{ opacity: "0.3" }}
-            ></img>
-          </Link>
-        )}
-
-        {window.location.href.includes("account") ? (
-          <Link to="/account">
-            <img className="icon-8" alt="account" src={account}></img>
-          </Link>
-        ) : (
-          <Link to="/account">
-            <img
-              className="icon-8"
-              alt="account"
-              src={account}
-              style={{ opacity: "0.3" }}
-            ></img>
-          </Link>
-        )} */}
       </div>
     </div>
   );

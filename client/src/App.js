@@ -6,8 +6,6 @@ import Account from "./pages/Account";
 import Protected from "./components/Protected";
 import Schedule from "./pages/Schedule";
 import MeetingSuccess from "./pages/MeetingSuccess";
-import TempHome from "./pages/TempHome";
-import Tempaccount from "./pages/Tempaccount";
 
 function App() {
   return (
@@ -47,8 +45,6 @@ function App() {
               </Protected>
             }
           />
-          <Route path="/tempHome" element={<TempHome />} />
-          <Route path="/tempaccount" element={<Tempaccount />} />
         </Routes>
       </AuthContextProvider>
     </div>
