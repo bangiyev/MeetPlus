@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { GoogleButton } from "react-google-button";
 import { UserAuth } from "../context/AuthContext";
 import "./SignInStyles.css";
+import image from "../images/login-image.png";
 
 const Home = () => {
   const { googleSignIn, user } = UserAuth();
@@ -48,21 +49,14 @@ const Home = () => {
 
   return (
     <div>
-      <div className="login-container">
-        <label>Email</label>
-        <input autoFocus type="text" required placeholder="email@example.com" />
-        <label>Password</label>
-        <input type="password" required placeholder="Password" />
-        <button>Sign In</button>
-
-        <GoogleButton
-          className="google-button"
-          type="light"
-          onClick={handleGoogleSignIn}
-          style={{ width: "540px" }}
-        />
-      </div>
-      <div className="second-half-of-login-screen"></div>
+      <img className="login-image" src={image}></img>
+      <h1 className="welcome-text">Welcome to Headstarter!</h1>
+      <GoogleButton
+        className="google-button"
+        type="light"
+        onClick={handleGoogleSignIn}
+        style={{ width: "300px", "margin-left": "42%" }}
+      />
     </div>
   );
 };

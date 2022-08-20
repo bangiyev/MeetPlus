@@ -33,7 +33,7 @@ flex-grow: 0;
     width: 661px;
     height: 104px;
         /* H1 */
-    /* font-family: 'DM Sans'; */
+    font-family: 'DM Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 40px;
@@ -55,7 +55,7 @@ flex-grow: 0;
 height: 20px;
 
 /* H4 */
-/* font-family: 'DM Sans'; */
+font-family: 'DM Sans';
 font-style: normal;
 font-weight: 400;
 font-size: 14px;
