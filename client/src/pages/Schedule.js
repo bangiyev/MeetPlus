@@ -34,7 +34,7 @@ const templateParams = {
   message: "New meeting has been scheduled. Check your calendar",
 };
 const publicKey = "mW6oS7yH46JF5vmch";
-const serviceID = "service_bj1j7ol";
+const serviceID = "XXXXXXXXXXXXXXXXX";
 const templateID = "template_jkrmcxn";
 
 export default function Schedule() {
