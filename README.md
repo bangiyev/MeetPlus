@@ -1,5 +1,5 @@
 # MeetPlus
-Calendar app for team members to schedule meetings, send reminders to their group, and view each other’s availabilities.
+Calendar app for team members to schedule meetings, send reminders to their group, and view each other’s availability.
 
 ## Features
 
