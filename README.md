@@ -9,5 +9,6 @@ Calendar app for team members to schedule meetings, send reminders to their grou
 - Click and drag over the days or times you want to set a new event for and give it a meaningful title (group meeting, someone's unavailability, etc)
 - Click on a set event to email a reminder containing event details to the rest of the group
 
+- Event data and user emails are stored on Mongo
 
 
